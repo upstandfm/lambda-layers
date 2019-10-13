@@ -11,6 +11,7 @@ For more information on how to use layers with Serverless, see the [docs](https:
 - [Workflow](#workflow)
 - [Development](#development)
 - [CI/CD](#cicd)
+- [Layers](#layers)
 - [Output variables](#output-variables)
 
 ## Workflow
@@ -57,6 +58,12 @@ Additionally, an [access role](https://serverless.com/framework/docs/dashboard/a
 > The Serverless Framework leverages AWS Security Token Service and the AssumeRole API to automate creating and usage of temporary credentials, so your developers can stay productive and work securely without doing this manually.
 
 We also use a separate CloudFormation role to limit access during deployment, to only the required set of permissions needed by Serverless to deploy resources (i.e. _no_ `AdministratorAccess`). This is done by setting `provider.cfnRole` in the Serverless manifest.
+
+# Layers
+
+## FFmpeg
+
+The [FFmpeg](https://ffmpeg.org/) static build has been taken from [https://johnvansickle.com/ffmpeg](https://johnvansickle.com/ffmpeg/). Specifically the `ffmpeg-git-amd64-static.tar.xz`, built from Git `master`.
 
 # Output variables
 
