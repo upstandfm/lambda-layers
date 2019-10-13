@@ -1,0 +1,35 @@
+org: upstandfm
+app: api
+service: lambda-layers
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'prod'}
+  region: ${opt:region, 'eu-central-1'}
+  cfnRole: ${secrets:CFN_ROLE_ARN}
+  deploymentBucket:
+    name: upstandfm-deployments
+    serverSideEncryption: AES256 # when using server-side encryption
+
+package:
+  exclude:
+    - ./*
+  include:
+    - layers
+
+layers:
+  ffmpeg:
+    path: layers
+    description: FFmpeg binary
+    compatibleRuntimes:
+      - nodejs10.x
+    licenseInfo: GPL v2+, for more info see https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md
+
+# Serverless output variables
+# For more info see:
+# https://serverless.com/framework/docs/dashboard/output-variables/
+outputs:
+  ffmpegArn:
+    # Serverless generates the Ref name by PascalCasing the layer name "ffmpeg"
+    # and appending "LambdaLayer"
+    Ref: FfmpegLambdaLayer

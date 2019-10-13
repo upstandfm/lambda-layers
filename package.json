@@ -1,0 +1,23 @@
+{
+  "name": "lambda-layers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Collection of AWS Lambda layers.",
+  "scripts": {
+    "sls:debug": "serverless print"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upstandfm/lambda-layers.git"
+  },
+  "author": "Daniël Illouz <daniel.illouz@me.com> (https://www.danillouz.dev/)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/upstandfm/lambda-layers/issues"
+  },
+  "homepage": "https://github.com/upstandfm/lambda-layers#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless": "^1.54.0"
+  }
+}
